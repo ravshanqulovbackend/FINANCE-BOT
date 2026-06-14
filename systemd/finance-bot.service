@@ -1,0 +1,14 @@
+[Unit]
+Description=Personal Finance Tracker Telegram Bot
+After=network.target postgresql.service
+
+[Service]
+Type=simple
+WorkingDirectory=/opt/finance_bot
+ExecStart=/opt/finance_bot/venv/bin/python /opt/finance_bot/bot.py
+Restart=always
+RestartSec=5
+Environment=PYTHONUNBUFFERED=1
+
+[Install]
+WantedBy=multi-user.target
